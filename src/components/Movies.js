@@ -14,7 +14,7 @@ const Movies = () => {
     return (
         <>
             {filmer?.length > 0 ? <p>{JSON.stringify(filmer)}</p> : null}
-            {/* filmer.map(movie => title, actor) */}
+            {/* filmer.map(movie => <Movie title={movie.title} actor={movie.actor}) /> */}
             <button type="button" onClick={handleClick}>
                 Hent filmer
             </button>
