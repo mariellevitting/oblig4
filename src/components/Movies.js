@@ -1,23 +1,20 @@
-import { useState } from 'react';
-import getMovies from '../utils/movieService';
+import {useState} from 'react';
+import {getMovies} from '../utils/movieService';
 import Movie from './Movie';
 
 const Movies = () => {
     const [filmer, setFilmer] = useState([]);
     
     const handleClick = async () => {
-        const data = await getMovies();
-        setFilmer(data);
-        {console.log(data)}
+        const movie = await getMovies();
+        setFilmer(movie);
+        console.log(movie)
     };
 
     return (
         <>
-            {filmer?.length > 0 ? <p>{JSON.stringify(filmer)}</p> : null}
-            {/* filmer.map(movie => <Movie title={movie.title} actor={movie.actor}) /> */}
-            <button type="button" onClick={handleClick}>
-                Hent filmer
-            </button>
+            {filmer.map(movie => <Movie title={movie.title} actor={movie.actor} />)}
+            <button type="button" onClick={handleClick}>Hent filmer</button>
         </>
     );
 };
